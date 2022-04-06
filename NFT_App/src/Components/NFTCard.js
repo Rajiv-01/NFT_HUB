@@ -19,7 +19,7 @@ const NFTCard = (props) => {
 	return (
 		<div className='NFT'>
 			<Card>
-				<CardImg alt='Card image cap' src={props.nft.image} top width='100%' />
+				<CardImg className='Nftcard' alt='Card  image' src={props.nft.image} />
 				<CardBody>
 					<CardTitle tag='h2'>{props.nft.name}</CardTitle>
 

@@ -1,0 +1,8 @@
+tensorflow
+tensorflow-gpu
+tensorflow-hub
+numpy
+Pillow
+scipy
+Flask
+gunicorn

@@ -22720,7 +22720,7 @@ input.datetimepicker[data-color='yellow']
 }
 .card .image {
 	overflow: hidden;
-	height: 200px;
+	height: 300px;
 	position: relative;
 }
 .card .avatar {
@@ -24311,5 +24311,11 @@ label {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.Nftcard{
+object-fit: cover;
+	height: 300px;
+	width:300px;
 }
 

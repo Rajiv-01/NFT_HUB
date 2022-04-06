@@ -20,24 +20,27 @@ const UploadForm = () => {
 	async function generate() {
 		let number = Math.floor(Math.random() * 100 + 1);
 		const imgfile = `../NFTs/${number}.png`;
-		setFileUrl(imgfile);
-		// try {
-		// 	const added = await client.add(imgfile, {
-		// 		progress: (prog) => console.log(`received: ${prog}`),
-		// 	});
-		// 	const url = `https://gateway.ipfs.io/ipfs/${added.path}`;
-		// 	setFileUrl(url);
-		// 	console.log(fileUrl);
-		// } catch (error) {
-		// 	console.log('Error uploading file: ', error);
-		// }
+		// setFileUrl(imgfile);
+		try {
+			const added = await client.add(imgfile, {
+				progress: (prog) => console.log(`received: ${prog}`),
+			});
+			const url = `https://gateway.ipfs.io/ipfs/${added.path}`;
+			console.log(url);
+			setFileUrl(url);
+			console.log(fileUrl);
+		} catch (error) {
+			console.log('Error uploading file: ', error);
+		}
 	}
 	async function onChange(e) {
 		const file = e.target.files[0];
+		console.log(file);
 		try {
 			const added = await client.add(file, {
 				progress: (prog) => console.log(`received: ${prog}`),
 			});
+			console.log(added);
 			const url = `https://gateway.ipfs.io/ipfs/${added.path}`;
 			setFileUrl(url);
 			console.log(fileUrl);
@@ -45,6 +48,7 @@ const UploadForm = () => {
 			console.log('Error uploading file: ', error);
 		}
 	}
+
 	async function createMarket() {
 		const { name, description, price } = formInput;
 		if (!name || !description || !price || !fileUrl) return;
@@ -89,7 +93,7 @@ const UploadForm = () => {
 			value: listingPrice,
 		});
 		await transaction.wait();
-		// this.props.history.push('/');
+		this.props.history.push('/');
 	}
 	return (
 		<div className='card' style={{ height: 'inherit' }}>
